@@ -537,6 +537,35 @@
   }
   .card.form{box-shadow:6px 7px 0 var(--ink) !important;}
   .hero-glyph{opacity:.9;}
+
+  /* ---- estrelinhas flutuando nas laterais ---- */
+  .brilhos{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;}
+  .brilhos .sp{position:absolute; opacity:0;
+    animation:brilha var(--d,9s) ease-in-out var(--a,0s) infinite;}
+  .brilhos .sp path{fill:var(--c,var(--rose));}
+  @keyframes brilha{
+    0%,100%{opacity:0; transform:translateY(8px) scale(.7) rotate(-8deg);}
+    50%{opacity:var(--o,.45); transform:translateY(-16px) scale(1) rotate(8deg);}
+  }
+  .brilhos .s1{top:10%;left:5%; width:26px; height:26px; --d:8.5s; --a:0s; --o:.50; --c:var(--rose);}
+  .brilhos .s2{top:24%;left:9.5%; width:14px; height:14px; --d:11s; --a:1.4s; --o:.34; --c:var(--ink);}
+  .brilhos .s3{top:41%;left:3.5%; width:20px; height:20px; --d:9.5s; --a:3.2s; --o:.30; --c:var(--ink);}
+  .brilhos .s4{top:58%;left:8.5%; width:12px; height:12px; --d:7.5s; --a:5.1s; --o:.46; --c:var(--rose);}
+  .brilhos .s5{top:76%;left:4.5%; width:22px; height:22px; --d:12s; --a:2.3s; --o:.28; --c:var(--ink);}
+  .brilhos .s6{top:14%;right:6%; width:18px; height:18px; --d:10s; --a:.8s; --o:.32; --c:var(--ink);}
+  .brilhos .s7{top:30%;right:3.5%; width:28px; height:28px; --d:9s; --a:4.2s; --o:.48; --c:var(--rose);}
+  .brilhos .s8{top:47%;right:8.5%; width:13px; height:13px; --d:8s; --a:2.7s; --o:.44; --c:var(--rose);}
+  .brilhos .s9{top:64%;right:4%; width:20px; height:20px; --d:11.5s; --a:5.6s; --o:.30; --c:var(--ink);}
+  .brilhos .s10{top:82%;right:7.5%; width:15px; height:15px; --d:10.5s; --a:1.9s; --o:.42; --c:var(--rose);}
+  @media(max-width:1100px){
+    .brilhos .sp{width:15px; height:15px;}
+    .brilhos .s1,.brilhos .s7{width:20px; height:20px;}
+    .brilhos .s3,.brilhos .s5,.brilhos .s9{display:none;}
+    .brilhos .s2,.brilhos .s4{left:2.5%;}
+    .brilhos .s6,.brilhos .s8{right:2.5%;}
+  }
+  @media(max-width:700px){ .brilhos{display:none;} }
+  @media(prefers-reduced-motion:reduce){ .brilhos .sp{animation:none; opacity:.26;} }
   .chart-shell{box-shadow:5px 6px 0 var(--ink) !important;}
   .prod{box-shadow:4px 5px 0 var(--ink) !important;}
   .faq details{box-shadow:3px 4px 0 rgba(46,26,71,.85) !important; margin-bottom:14px;}
@@ -584,6 +613,18 @@
 </style>
 </head>
 <body>
+<div class="brilhos" aria-hidden="true">
+  <svg class="sp s1" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+  <svg class="sp s2" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+  <svg class="sp s3" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+  <svg class="sp s4" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+  <svg class="sp s5" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+  <svg class="sp s6" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+  <svg class="sp s7" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+  <svg class="sp s8" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+  <svg class="sp s9" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+  <svg class="sp s10" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+</div>
 <div class="fundo" aria-hidden="true" id="fundo">
   <b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>
 </div>
