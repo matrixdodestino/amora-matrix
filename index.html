@@ -7,7 +7,7 @@
 <meta name="description" content="Calculate your Matrix of Destiny chart free from your birth date and get a preview of every zone. Complete readings delivered as a PDF, written one at a time.">
 <!-- TODO: set your English domain here before publishing -->
 <link rel="canonical" href="https://amora-matrix.com/">
-<meta name="theme-color" content="#F7F1DF">
+<meta name="theme-color" content="#FBF6EF">
 <link rel="icon" href="data:image/svg%2Bxml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F7F1DF'/%3E%3Cpolygon points='50,14 86,50 50,86 14,50' fill='none' stroke='%235B2E8C' stroke-width='4'/%3E%3Cpolygon points='24,24 76,24 76,76 24,76' fill='none' stroke='%235B2E8C' stroke-width='4'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23DD5F95'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
@@ -18,17 +18,18 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700;1,800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600;1,700&family=Italiana&family=Jost:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* mesma paleta dos PDFs */
-    --paper:#F7F1DF; --cream:#FBF7EC; --lav:#F1EBFA;
-    --ink:#2A1B3D; --soft:#54426B; --faint:#8B7A9B;
-    --violet:#5B2E8C; --violet-deep:#3B2A52; --rose:#DD5F95; --rose-pale:#F6CEDF;
+    /* paleta dos posts @amoradestinymatrix */
+    --paper:#FBF6EF; --cream:#FDF8F2; --lav:#EFE3F4;
+    --stripe:#F6DFE7; --sand:#F4E6DA;
+    --ink:#2E1A47; --soft:#4B3D58; --faint:#6E5F7A;
+    --violet:#5B2A86; --violet-deep:#2E1A47; --rose:#B0457A; --rose-pale:#F3D3E0;
     --green:#4E8C6A; --green-pale:#C4E0D0;
     --azul:#2E5F8C; --azul-claro:#6E9CC4;
-    --line:rgba(91,46,140,.20); --line-soft:rgba(221,95,149,.28);
-    --shadow:rgba(42,27,61,.10);
+    --line:rgba(46,26,71,.20); --line-soft:rgba(176,69,122,.28);
+    --shadow:rgba(46,26,71,.12);
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -110,7 +111,7 @@
     border-radius:2px; pointer-events:none;}
   .mini .me{font-family:"Jost",system-ui,sans-serif; font-size:10px; letter-spacing:.22em;
     text-transform:uppercase; color:var(--rose); margin:0 0 8px; text-align:center;}
-  .mini h3{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:clamp(24px,4.4vw,32px);
+  .mini h3{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:clamp(24px,4.4vw,32px);
     color:var(--violet); margin:0 0 8px; text-align:center; line-height:1.1;}
   .mini .ml{font-family:"EB Garamond",serif; font-style:italic; color:var(--soft); font-size:16.5px;
     text-align:center; margin:0 auto 20px; max-width:44ch;}
@@ -123,9 +124,9 @@
     text-align:center; display:none;}
   .cv-res.show{display:block; animation:cvIn .6s cubic-bezier(.4,0,.2,1);}
   @keyframes cvIn{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
-  .cv-num{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:800; font-size:clamp(58px,12vw,86px); color:var(--violet);
+  .cv-num{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:800; font-size:clamp(58px,12vw,86px); color:var(--violet);
     line-height:.95; margin:0;}
-  .cv-nome{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:clamp(22px,4vw,30px); color:var(--rose);
+  .cv-nome{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:clamp(22px,4vw,30px); color:var(--rose);
     margin:6px 0 4px; line-height:1.1;}
   .cv-epi{font-family:"Jost",system-ui,sans-serif; font-size:10.5px; letter-spacing:.2em;
     text-transform:uppercase; color:var(--faint); margin:0 0 16px;}
@@ -160,19 +161,19 @@
     display:flex; flex-direction:column;}
   .combo .eco{font-family:"Jost",system-ui,sans-serif; font-size:10px; letter-spacing:.14em;
     text-transform:uppercase; color:var(--green); margin:0 0 10px;}
-  .combo h3{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:28px; color:var(--violet); margin:0 0 12px;}
+  .combo h3{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:28px; color:var(--violet); margin:0 0 12px;}
   .combo ul{list-style:none; padding:0; margin:0 0 18px; flex:1;}
   .combo li{position:relative; padding-left:20px; margin:0 0 8px; font-size:16px;}
   .combo li::before{content:""; position:absolute; left:1px; top:9px; width:5px; height:5px;
     background:var(--rose); transform:rotate(45deg);}
   .combo .pr{display:flex; align-items:baseline; gap:10px; margin:0 0 16px;}
   .combo .de{font-family:"EB Garamond",serif; font-size:17px; color:var(--faint); text-decoration:line-through;}
-  .combo .por{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:32px; color:var(--violet);}
+  .combo .por{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:32px; color:var(--violet);}
 
   /* ---- depoimentos ---- */
   .depo-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:16px;}
   .depo{background:rgba(251,247,236,.86); backdrop-filter:blur(6px); border:1px solid var(--line); border-radius:4px; padding:24px 22px;}
-  .depo .aspas{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:46px; color:var(--rose-pale); line-height:.6; display:block; margin-bottom:6px;}
+  .depo .aspas{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:46px; color:var(--rose-pale); line-height:.6; display:block; margin-bottom:6px;}
   .depo p{margin:0 0 14px; font-size:16.5px; color:var(--ink); font-style:italic; line-height:1.6;}
   .depo .quem{font-family:"Jost",system-ui,sans-serif; font-size:10.5px; letter-spacing:.14em;
     text-transform:uppercase; color:var(--faint);}
@@ -181,7 +182,7 @@
   .final{margin-top:clamp(56px,9vw,88px); text-align:center; background:rgba(241,235,250,.84); backdrop-filter:blur(6px);
     border:1px solid var(--line-soft); border-radius:4px; padding:clamp(34px,6vw,54px) 28px; position:relative;}
   .final::after{content:""; position:absolute; inset:7px; border:1px solid var(--line); border-radius:2px; pointer-events:none;}
-  .final h2{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:clamp(28px,5.4vw,42px);
+  .final h2{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:clamp(28px,5.4vw,42px);
     color:var(--violet); margin:0 0 14px; line-height:1.08;}
   .final p{max-width:46ch; margin:0 auto 26px; color:var(--soft); font-style:italic; font-size:17.5px;}
 
@@ -200,7 +201,7 @@
     display:flex; align-items:center; justify-content:space-between; gap:16px;}
   .marca{display:flex; align-items:center; gap:11px; text-decoration:none;}
   .marca svg{width:26px; height:26px; display:block; flex:none;}
-  .marca .mn{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:20px; color:var(--violet); line-height:1;}
+  .marca .mn{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:20px; color:var(--violet); line-height:1;}
   .topbar nav{display:flex; gap:22px; align-items:center;}
   .topbar nav a{font-family:"Jost",system-ui,sans-serif; font-size:11px; letter-spacing:.16em;
     text-transform:uppercase; color:var(--soft); text-decoration:none; transition:color .2s;}
@@ -214,7 +215,7 @@
   /* ---- como funciona ---- */
   .passo-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px;}
   .passo{background:rgba(251,247,236,.82); backdrop-filter:blur(6px); border:1px solid var(--line); border-radius:4px; padding:24px 22px;}
-  .passo .pnum{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:34px; color:var(--rose); line-height:1; margin:0 0 10px;}
+  .passo .pnum{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:34px; color:var(--rose); line-height:1; margin:0 0 10px;}
   .passo h3{font-family:"EB Garamond",serif; font-weight:600; font-size:19px; color:var(--violet); margin:0 0 7px;}
   .passo p{margin:0; font-size:16.5px; color:var(--soft); line-height:1.6;}
 
@@ -246,7 +247,7 @@
 
   .eyebrow{font-family:"Jost",system-ui,sans-serif; letter-spacing:.34em; text-transform:uppercase;
     font-size:11px; color:var(--violet); opacity:.9; margin:0 0 18px; font-weight:400;}
-  h1{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:800; letter-spacing:-.012em; color:var(--ink);
+  h1{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:800; letter-spacing:-.012em; color:var(--ink);
     font-size:clamp(34px,7.4vw,58px); line-height:1.1; margin:0 0 12px;}
   .lede{font-family:"EB Garamond",serif; font-size:clamp(18px,2.3vw,22px);
     font-style:italic; color:var(--soft); max-width:44ch; margin:0 auto;}
@@ -349,7 +350,7 @@
   /* resultado */
   #result{margin-top:44px; opacity:0; transform:translateY(14px); transition:opacity .7s, transform .7s;}
   #result.show{opacity:1; transform:none;}
-  .result-name{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; text-align:center;
+  .result-name{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; text-align:center;
     color:var(--violet); font-size:34px; margin:0 0 6px; line-height:1.1;}
   .result-title{font-family:"Jost",system-ui,sans-serif; text-align:center; font-size:11px; letter-spacing:.3em;
     text-transform:uppercase; color:var(--faint); margin:0 0 22px;}
@@ -396,7 +397,7 @@
   .lblock{max-width:62ch; margin:0 auto 34px; padding-left:20px; border-left:2px solid var(--line-soft);}
   .lblock .lz{font-family:"Jost",system-ui,sans-serif; font-size:10px; letter-spacing:.22em;
     text-transform:uppercase; color:var(--rose); margin:0 0 6px;}
-  .lblock .lh{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:32px; color:var(--violet); line-height:1.08; margin:0 0 2px;}
+  .lblock .lh{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:32px; color:var(--violet); line-height:1.08; margin:0 0 2px;}
   .lblock .ls{font-family:"EB Garamond",serif; font-style:italic; color:var(--soft); font-size:17px; margin:0 0 10px;}
   .lblock p{margin:0; color:var(--ink);}
   .lblock.destaque{border-left-color:var(--violet); background:var(--lav); padding:20px 22px; border-radius:3px;}
@@ -412,7 +413,7 @@
   .chamado::after{content:""; position:absolute; inset:6px; border:1px solid var(--line); border-radius:2px; pointer-events:none;}
   .chamado .ce{font-family:"Jost",system-ui,sans-serif; font-size:10px; letter-spacing:.24em;
     text-transform:uppercase; color:var(--rose); margin:0 0 8px;}
-  .chamado h3{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:clamp(26px,5vw,36px);
+  .chamado h3{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:clamp(26px,5vw,36px);
     color:var(--violet); margin:0 0 10px; line-height:1.08;}
   .chamado .cl{font-family:"EB Garamond",serif; font-style:italic; color:var(--soft); font-size:17.5px; margin:0 auto 22px; max-width:46ch;}
   .chamado ul{list-style:none; padding:0; margin:0 auto 26px; text-align:left; max-width:42ch;}
@@ -451,7 +452,7 @@
 
   /* seções */
   .sec-eyebrow{font-family:"Jost",system-ui,sans-serif; letter-spacing:.3em; text-transform:uppercase; font-size:10.5px; color:var(--rose); text-align:center; margin:0 0 10px;}
-  .sec-title{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:clamp(28px,5.4vw,42px); text-align:center; margin:0 0 8px; color:var(--ink); line-height:1.14; letter-spacing:-.01em;}
+  .sec-title{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:clamp(28px,5.4vw,42px); text-align:center; margin:0 0 8px; color:var(--ink); line-height:1.14; letter-spacing:-.01em;}
   .sobre{margin-top:70px;}
   .sobre-body{max-width:62ch; margin:0 auto;}
   .sobre-body p{margin:0 0 16px;}
@@ -468,7 +469,7 @@
     box-shadow:0 18px 40px -34px var(--shadow);}
   @media(min-width:720px){ .prod{flex-basis:304px;} }
   .prod .ptop{height:3px; width:44px; border-radius:2px; margin-bottom:18px;}
-  .prod h3{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:27px; color:var(--ink); margin:0 0 6px; line-height:1.08;}
+  .prod h3{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:27px; color:var(--ink); margin:0 0 6px; line-height:1.08;}
   .prod .pd{font-family:"EB Garamond",serif; font-style:italic; color:var(--soft); font-size:16.5px; margin:0 0 18px;}
   .prod .pn{font-family:"Jost",system-ui,sans-serif; font-size:9.5px; letter-spacing:.18em; text-transform:uppercase;
     color:var(--faint); margin:0 0 8px;}
@@ -476,7 +477,7 @@
   .prod li{position:relative; padding-left:20px; margin:0 0 9px; font-size:16px; color:var(--ink); line-height:1.5;}
   .prod li::before{content:""; position:absolute; left:1px; top:9px; width:5px; height:5px;
     background:var(--rose); transform:rotate(45deg);}
-  .prod .price{font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:30px; color:var(--violet); margin:0 0 16px;}
+  .prod .price{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:30px; color:var(--violet); margin:0 0 16px;}
   .prod .buy{display:block; text-align:center; text-decoration:none; font-family:"Jost",system-ui,sans-serif; font-weight:500;
     letter-spacing:.14em; text-transform:uppercase; font-size:12px; color:var(--cream); padding:14px; border-radius:3px;
     background:var(--violet); transition:background .2s, transform .15s;}
@@ -491,6 +492,101 @@
   @media (prefers-reduced-motion:reduce){
     *{animation:none !important; transition:none !important;}
   }
+  /* ==================== ESTÉTICA DOS POSTS ==================== */
+  .fundo{display:none !important;}
+  body{background:var(--paper);}
+
+  .band{position:relative;}
+  .band::before{
+    content:""; position:absolute; top:-54px; bottom:-46px;
+    left:50%; margin-left:-50vw; width:100vw; z-index:-1;
+    background:repeating-linear-gradient(90deg,#FBF6EF 0,#FBF6EF 36px,var(--stripe) 36px,var(--stripe) 72px);
+    border-top:1px solid rgba(46,26,71,.12); border-bottom:1px solid rgba(46,26,71,.12);
+  }
+  @media(max-width:640px){ .band::before{background:repeating-linear-gradient(90deg,#FBF6EF 0,#FBF6EF 22px,var(--stripe) 22px,var(--stripe) 44px);} }
+
+  /* ---- topo ---- */
+  .topbar{background:rgba(253,248,242,.92); border-bottom:1.5px solid var(--ink);}
+  .marca .mn{font-family:"Italiana",Georgia,serif; font-style:normal; font-weight:400;
+    font-size:23px; letter-spacing:.01em; color:var(--ink);}
+  .topbar nav a{color:var(--ink);}
+
+  /* ---- hero ---- */
+  .hero{padding-top:8px;}
+  .eyebrow{color:var(--ink); font-weight:500; letter-spacing:.32em; font-size:clamp(11px,1.5vw,13px);}
+  .kicker{display:inline-block; margin:14px 0 2px; padding:6px 22px 9px;
+    background:#FFFDF9; border:2px dashed var(--ink);
+    font-family:"Jost",system-ui,sans-serif; font-size:clamp(16px,2.4vw,23px); font-weight:500;
+    letter-spacing:-.01em; color:var(--ink); transform:rotate(-2deg);}
+  .hero h1{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:600;
+    font-size:clamp(58px,12.5vw,128px); line-height:.96; letter-spacing:-.035em;
+    color:var(--ink); margin:2px 0 0;}
+  .script{font-family:"Pinyon Script",cursive; font-size:clamp(32px,6.6vw,66px);
+    line-height:1.12; color:var(--rose); margin:0 0 6px;}
+  .hero .lede{color:var(--soft); max-width:46ch; margin-left:auto; margin-right:auto;}
+
+  .ganchos{display:flex; flex-wrap:wrap; justify-content:center; gap:11px; margin-top:22px;}
+  .gancho{font-family:"Jost",system-ui,sans-serif; font-size:clamp(13px,1.8vw,15.5px);
+    font-weight:500; color:var(--ink); background:var(--cream);
+    border:2.5px solid var(--ink); border-radius:999px; padding:8px 20px 10px;
+    box-shadow:4px 5px 0 var(--ink);}
+  .gancho b{font-weight:600; color:var(--rose);}
+  .gancho:nth-child(1){transform:rotate(-2deg);}
+  .gancho:nth-child(2){background:var(--ink); color:var(--cream); box-shadow:none; transform:rotate(2deg);}
+  .gancho:nth-child(2) b{color:var(--rose-pale);}
+  .gancho:nth-child(3){transform:rotate(-1.5deg);}
+
+  /* ---- painéis em creme com moldura ---- */
+  .card.form,.chart-shell,.prod,.faq details,.depo{
+    background:var(--cream) !important; backdrop-filter:none !important;
+    border:2px solid var(--ink) !important; border-radius:0 !important;
+  }
+  .card.form{box-shadow:6px 7px 0 var(--ink) !important;}
+  .chart-shell{box-shadow:5px 6px 0 var(--ink) !important;}
+  .prod{box-shadow:4px 5px 0 var(--ink) !important;}
+  .faq details{box-shadow:3px 4px 0 rgba(46,26,71,.85) !important; margin-bottom:14px;}
+
+  /* ---- vitrine ---- */
+  .prod .ptop{height:0; margin:0;}
+  .prod h3{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:600; font-size:29px;}
+  .prod .pn{color:var(--rose); font-weight:500;}
+  .prod li::before{background:var(--rose);}
+  .prod .price{display:inline-block; align-self:flex-start; font-family:"Jost",system-ui,sans-serif; font-style:normal;
+    font-weight:600; font-size:23px; letter-spacing:.02em; color:#FFFDF9;
+    border:2.5px solid var(--ink); border-radius:999px; padding:6px 20px 8px;
+    transform:rotate(-2deg); box-shadow:3px 4px 0 var(--ink); margin:0 0 20px;}
+  .prod .selo{background:var(--ink); color:var(--cream); border-radius:999px; padding:4px 14px 5px;}
+
+  /* ---- botões em pílula ---- */
+  .btn,.cta,.prod .buy{
+    border-radius:999px !important; background:var(--ink) !important; color:var(--cream) !important;
+    border:2px solid var(--ink) !important; font-family:"Jost",system-ui,sans-serif;
+    letter-spacing:.05em; box-shadow:4px 5px 0 rgba(46,26,71,.22);}
+  .btn:hover,.cta:hover,.prod .buy:hover{box-shadow:2px 3px 0 rgba(46,26,71,.3); transform:translateY(1px);}
+  .cta.ghost,.prod .buy.fantasma{background:var(--cream) !important; color:var(--ink) !important;}
+
+  /* ---- seções ---- */
+  .sec-eyebrow{color:var(--rose); font-weight:500;}
+  .sec-title{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:600; color:var(--ink);}
+  .passo .pnum{font-family:"Jost",system-ui,sans-serif; font-style:normal; font-weight:600;
+    font-size:15px; letter-spacing:.2em; color:var(--rose);}
+  .passo h3{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:600; font-size:22px; color:var(--ink);}
+  .passo{background:var(--cream) !important; border:2px solid var(--ink) !important;
+    border-radius:0 !important; box-shadow:4px 5px 0 var(--ink) !important;}
+
+  .final{background:var(--cream) !important; backdrop-filter:none !important;
+    border:2px solid var(--ink) !important; border-radius:0 !important;
+    box-shadow:6px 7px 0 var(--ink) !important;}
+  .final h2{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:600; color:var(--ink);
+    font-size:clamp(34px,6.4vw,60px); letter-spacing:-.025em; line-height:1.02;}
+
+  /* ---- barra fixa ---- */
+  .barra{background:repeating-linear-gradient(90deg,#FBF6EF 0,#FBF6EF 36px,var(--stripe) 36px,var(--stripe) 72px);
+    border-top:2px solid var(--ink);}
+  .barra .bt{color:var(--ink);}
+
+  footer b{color:var(--ink);}
+
 </style>
 </head>
 <body>
@@ -514,10 +610,12 @@
   </div>
 </div>
 <div class="wrap" id="topo">
-  <header class="hero">
+  <header class="hero band">
     <div class="hero-content">
       <p class="eyebrow">@amoradestinymatrix</p>
-      <h1>Find out what your birth date reveals</h1>
+      <p class="kicker">discover what your</p>
+      <h1>birth date</h1>
+      <p class="script">reveals about you</p>
       <p class="lede">From the day you were born, the Matrix of Destiny draws a map of your patterns, your talents, and your cycles. Calculate yours here, free.</p>
       <div class="ganchos">
         <span class="gancho">Why do you <b>keep repeating the same patterns</b>?</span>
@@ -658,7 +756,7 @@
     </div>
   </section>
 
-  <section class="final">
+  <section class="final band">
     <h2>You have seen the chart.<br>Now read what it says.</h2>
     <p>The preview shows you your arcana. The complete reading tells the story they form together — and what to do with it.</p>
     <div class="cta-row">
@@ -696,7 +794,7 @@
 const WHATSAPP='5514996056079';
 function waLink(msg){ return 'https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg); }
 const PRODUTOS=[
- {nome:'Complete Matrix of Destiny', preco:'USD $19', cor:'#5B2E8C',
+ {nome:'Complete Matrix of Destiny', preco:'USD $19', cor:'#5B2A86',
   destaque:'The ten zones of your chart, read one by one',
   nota:'10 sections · the most complete reading',
   itens:['Past life — your karmic tail and how to heal it',
@@ -711,7 +809,7 @@ const PRODUTOS=[
          'Forecasts — the cycles coming next'],
   msg:'Hi! I\u2019d like the Complete Matrix of Destiny reading \u2728'},
 
- {nome:'Soulmate Reading', preco:'USD $12', cor:'#DD5F95',
+ {nome:'Soulmate Reading', preco:'USD $12', cor:'#B0457A',
   destaque:'Who they are, how to recognize them, where to meet',
   nota:'the love line of your chart',
   itens:['The block that has been keeping love away',
@@ -720,7 +818,28 @@ const PRODUTOS=[
          'The bond between you and the challenge it carries',
          'What you need in a relationship',
          'The places where that meeting tends to happen'],
-  msg:'Hi! I\u2019d like the Soulmate Reading \uD83D\uDC9C'}
+  msg:'Hi! I\u2019d like the Soulmate Reading \uD83D\uDC9C'},
+
+ {nome:'Talents Matrix', preco:'USD $12', cor:'#A8526B',
+  destaque:'The gift you were born with, and where it pays off',
+  nota:'the talent line of your chart',
+  itens:['Your talent line, read in three arcana',
+         'The essence of your soul\u2019s talent',
+         'The way you express it in the world',
+         'Where it pays off professionally',
+         'The three blockages on your talent line',
+         'How to unlock each one of them'],
+  msg:'Hi! I\u2019d like the Talents Matrix reading \u2728'},
+
+ {nome:'Year Matrix 2027', preco:'USD $12', cor:'#8E3E9C',
+  destaque:'The energy ruling your 2027, before the year begins',
+  nota:'your personal forecast for the year',
+  itens:['Your ruling arcanum in 2027',
+         'What the year brings to your work',
+         'What it brings to love and to your bonds',
+         'How to make the most of this energy',
+         'What to watch for along the way'],
+  msg:'Hi! I\u2019d like the Year Matrix reading for 2027 \u2728'}
 ];
 function renderVitrine(){
   const box=document.getElementById('vitrine');
@@ -746,7 +865,7 @@ function renderVitrine(){
       (p.nota?'<p class="pn">'+p.nota+'</p>':'')+
       '<p class="pentrega">Ready in 1 to 2 days · PDF</p>'+
       '<ul>'+lis+'</ul>'+
-      '<div class="price">'+p.preco+'</div>'+
+      '<div class="price" style="background:'+p.cor+'">'+p.preco+'</div>'+
       '<a class="buy" href="'+link+'" target="_blank" rel="noopener">I want this reading</a>'+
       '</div>';
   }).join('');
