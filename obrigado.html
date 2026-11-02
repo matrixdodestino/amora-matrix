@@ -5,57 +5,76 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Thank you · Amora Matrix</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#FBF6EF">
+<meta name="theme-color" content="#F5F1FD">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23FBF6EF'/%3E%3Crect x='46' y='46' width='108' height='108' fill='none' stroke='%232E1A47' stroke-width='8'/%3E%3Crect x='46' y='46' width='108' height='108' fill='none' stroke='%232E1A47' stroke-width='8' transform='rotate(45 100 100)'/%3E%3Ccircle cx='100' cy='100' r='20' fill='%23B0457A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,600&family=Italiana&family=Jost:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#FBF6EF; --cream:#FDF8F2; --ink:#2E1A47; --soft:#4B3D58;
-    --faint:#6E5F7A; --rose:#B0457A; --line:#DCC6D6; --rose-pale:#F3D3E0;
+    --nevoa:#F5F1FD; --lil3:#DCCBF4; --lil5:#C3A9E9;
+    --ink:#2B1A4A; --soft:#4A3B66; --faint:#665884;
+    --violet:#5E3FA6; --violet-mid:#9277CF; --rose:#C24E88;
+    --vidro:rgba(255,255,255,.64); --vidro-borda:rgba(255,255,255,.92);
   }
   *{box-sizing:border-box}
-  body{margin:0; min-height:100vh; background:var(--paper); color:var(--ink);
+  html,body{overflow-x:clip}
+  body{margin:0; min-height:100vh; color:var(--ink);
     font-family:"EB Garamond",Georgia,serif; font-size:18px; line-height:1.6;
-    display:flex; flex-direction:column; align-items:center; padding:34px 18px 70px;}
+    display:flex; flex-direction:column; align-items:center; padding:34px 18px 70px; position:relative;
+    background:
+      radial-gradient(1.6px 1.6px at 8% 22%, #fff 60%, transparent 62%),
+      radial-gradient(1.2px 1.2px at 21% 64%, #fff 60%, transparent 62%),
+      radial-gradient(2px 2px at 34% 14%, #fff 60%, transparent 62%),
+      radial-gradient(1.8px 1.8px at 61% 31%, #fff 60%, transparent 62%),
+      radial-gradient(2.2px 2.2px at 86% 18%, rgba(247,224,160,.95) 60%, transparent 62%),
+      radial-gradient(1.4px 1.4px at 93% 56%, #fff 60%, transparent 62%),
+      radial-gradient(1.8px 1.8px at 55% 48%, rgba(247,224,160,.85) 60%, transparent 62%),
+      linear-gradient(180deg,#F8F5FE 0,var(--nevoa) 30%,var(--lil3) 72%,var(--lil5) 100%);
+    background-size:480px 340px,480px 340px,480px 340px,480px 340px,480px 340px,480px 340px,480px 340px,auto;}
+  /* uma camada curva atrás do cartão, como no site */
+  body::before{content:""; position:absolute; z-index:0; left:50%; width:140vw; transform:translateX(-50%);
+    top:300px; bottom:0; border-radius:50% 50% 0 0 / 120px 120px 0 0; border-top:1.5px solid rgba(255,255,255,.95);
+    background:linear-gradient(180deg,rgba(220,203,244,.65),rgba(195,169,233,.75)); pointer-events:none;}
+  body > *{position:relative; z-index:1}
 
   .marca{display:flex; align-items:center; gap:13px; margin-bottom:26px; text-decoration:none; color:var(--ink)}
   .marca svg{width:42px; height:42px}
-  .marca b{font-family:"Italiana",Georgia,serif; font-weight:400; font-size:27px; line-height:1; letter-spacing:.015em}
-  .marca small{display:block; font-family:"Jost",system-ui,sans-serif; font-size:10px; letter-spacing:.3em; color:var(--faint); margin-top:4px}
+  .marca b{font-family:"Italiana",Georgia,serif; font-weight:400; font-size:28px; line-height:1; letter-spacing:.02em}
+  .marca small{display:block; font-family:"Jost",system-ui,sans-serif; font-size:13px; letter-spacing:.02em; color:var(--faint); margin-top:4px}
 
-  .painel{width:100%; max-width:600px; background:var(--cream); border:2px solid var(--ink);
-    box-shadow:6px 7px 0 var(--ink); padding:38px 34px 32px; text-align:center;}
-  @media(max-width:520px){ .painel{padding:28px 20px 26px; box-shadow:4px 5px 0 var(--ink)} }
+  .painel{width:100%; max-width:600px; background:var(--vidro); border:1px solid var(--vidro-borda); border-radius:34px;
+    backdrop-filter:blur(18px) saturate(1.25); -webkit-backdrop-filter:blur(18px) saturate(1.25);
+    box-shadow:0 26px 60px -32px rgba(70,40,135,.55); padding:40px 36px 34px; text-align:center;}
+  @media(max-width:520px){ .painel{padding:28px 20px 26px; border-radius:26px} }
 
-  .eyebrow{font-family:"Jost",system-ui,sans-serif; font-size:11px; font-weight:500; letter-spacing:.24em;
-    text-transform:uppercase; color:var(--rose); margin:0 0 12px}
-  h1{font-style:italic; font-weight:600; font-size:clamp(32px,7vw,46px); line-height:1.06;
-    letter-spacing:-.02em; margin:0 0 12px}
+  .eyebrow{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-size:19px; color:var(--violet); margin:0 0 6px}
+  h1{font-family:"Italiana",Georgia,serif; font-weight:400; font-size:clamp(38px,8vw,56px); line-height:1.04;
+    letter-spacing:.01em; margin:0 0 14px}
   .lede{font-style:italic; font-size:20px; color:var(--soft); margin:0 auto 26px; max-width:30em}
 
   .cta{display:block; width:100%; font-family:"Jost",system-ui,sans-serif; font-size:16px; font-weight:500;
-    letter-spacing:.05em; text-decoration:none; text-align:center; border-radius:999px; padding:15px 22px;
-    border:2px solid var(--ink); background:var(--ink); color:var(--cream);
-    box-shadow:4px 5px 0 rgba(46,26,71,.22)}
-  .cta:hover{box-shadow:2px 3px 0 rgba(46,26,71,.3); transform:translateY(1px)}
+    letter-spacing:.02em; text-decoration:none; text-align:center; border-radius:999px; padding:15px 22px;
+    border:0; background:var(--ink); color:#fff; box-shadow:0 16px 30px -16px rgba(43,26,74,.8);
+    transition:background .2s, transform .15s}
+  .cta:hover{background:var(--violet); transform:translateY(-1px)}
+  .cta:focus-visible{outline:3px solid var(--rose); outline-offset:3px}
 
   .passos{list-style:none; counter-reset:p; padding:0; margin:30px 0 0; text-align:left}
   .passos li{counter-increment:p; position:relative; padding:0 0 0 54px; margin:0 0 20px}
   .passos li::before{content:counter(p); position:absolute; left:0; top:-2px; width:38px; height:38px;
-    border:2px solid var(--ink); border-radius:50%; background:#fff; display:flex; align-items:center;
+    border-radius:50%; background:var(--violet); color:#fff; display:flex; align-items:center;
     justify-content:center; font-family:"Jost",system-ui,sans-serif; font-weight:500; font-size:15px}
   .passos b{display:block; font-style:italic; font-weight:600; font-size:21px; line-height:1.2}
   .passos span{display:block; color:var(--soft); font-size:17px; margin-top:2px}
 
-  .atencao{margin:8px 0 0; background:#F6ECF2; border:1.5px solid var(--line); border-radius:12px;
-    padding:14px 16px; font-size:16.5px; color:var(--soft); text-align:left}
+  .atencao{margin:8px 0 0; background:rgba(255,255,255,.7); border:1px solid rgba(94,63,166,.18); border-radius:18px;
+    padding:14px 18px; font-size:16.5px; color:var(--soft); text-align:left}
   .atencao b{color:var(--ink)}
 
-  .rodape{margin-top:26px; font-family:"Jost",system-ui,sans-serif; font-size:14px; color:var(--faint);
+  .rodape{margin-top:26px; font-family:"Jost",system-ui,sans-serif; font-size:14px; color:var(--soft);
     text-align:center; max-width:560px}
-  .rodape a{color:var(--rose)}
+  .rodape a{color:var(--violet)}
 </style>
 </head>
 <body>
@@ -63,11 +82,11 @@
 <a class="marca" href="https://amora-matrix.com">
   <svg viewBox="0 0 200 200" aria-hidden="true">
     <circle cx="100" cy="100" r="92" fill="none" stroke="#DCC6D6" stroke-width="3" stroke-dasharray="4 9"></circle>
-    <rect x="38" y="38" width="124" height="124" fill="none" stroke="#2E1A47" stroke-width="6"></rect>
-    <rect x="38" y="38" width="124" height="124" fill="none" stroke="#2E1A47" stroke-width="6" transform="rotate(45 100 100)"></rect>
-    <circle cx="100" cy="100" r="17" fill="#B0457A"></circle>
+    <rect x="38" y="38" width="124" height="124" fill="none" stroke="#2B1A4A" stroke-width="6"></rect>
+    <rect x="38" y="38" width="124" height="124" fill="none" stroke="#2B1A4A" stroke-width="6" transform="rotate(45 100 100)"></rect>
+    <circle cx="100" cy="100" r="17" fill="#C24E88"></circle>
   </svg>
-  <span><b>Amora Matrix</b><small>THANK YOU</small></span>
+  <span><b>Amora Matrix</b><small>Thank you</small></span>
 </a>
 
 <main class="painel">
