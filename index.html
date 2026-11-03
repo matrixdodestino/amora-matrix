@@ -714,6 +714,16 @@
   .sobre::before,.passos::before,.vitrine::before,.duvidas::before,.camada-final::before{box-shadow:none !important;}
   .gancho,.faq details{background:rgba(255,255,255,.80) !important;}
   @media (max-width:700px), (hover:none){ .orbitas .giro{animation:none;} }
+  /* No celular e no tablet a página fica parada: as cintilações do gráfico
+     forçam o navegador a redesenhar tudo a cada quadro, e com zoom isso
+     pesa demais. Cada ponto fica no seu brilho médio, sem piscar.       */
+  @media (hover:none), (pointer:coarse), (max-width:700px){
+    .hg-node,.hg-dust,.cintila,.faisca,.breathe{animation:none !important; transform:none !important;}
+    .hg-node{opacity:.8;} .hg-node.core{opacity:1;}
+    .hg-dust{opacity:.35;} .cintila{opacity:.8;} .faisca{opacity:.35;}
+    .btn::after{animation:none !important; display:none;}
+    .brilhos{display:none !important;}
+  }
 </style>
 </head>
 <body>
