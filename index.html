@@ -542,7 +542,7 @@
 
   /* ---- as camadas ---- */
   .sobre,.passos,.vitrine,.duvidas{position:relative;}
-  .sobre::before,.passos::before,.vitrine::before,.duvidas::before,.camada-final::before{
+  .sobre::before,.passos::before,.dentro::before,.vitrine::before,.duvidas::before,.camada-final::before{
     content:""; position:absolute; z-index:-1; left:50%; width:100vw; transform:translateX(-50%);
     top:-64px; bottom:-340px;
     border-radius:50% 50% 0 0 / 110px 110px 0 0;
@@ -555,6 +555,7 @@
   }
   .sobre{--camada:linear-gradient(180deg,var(--lil1),var(--lil1));}
   .passos{--camada:linear-gradient(180deg,var(--lil2),var(--lil2));}
+  .dentro{--camada:linear-gradient(180deg,#E1D2F6,#E1D2F6);}
   .vitrine{--camada:linear-gradient(180deg,var(--lil3),var(--lil3));}
   .duvidas{--camada:linear-gradient(180deg,var(--lil4),var(--lil4));}
   .camada-final{position:relative; display:flow-root; --camada:linear-gradient(180deg,var(--lil5),#BFA3E7);}
@@ -690,7 +691,7 @@
   .aparece{opacity:1 !important; transform:none !important;}
 
   @media(max-width:560px){
-    .sobre::before,.passos::before,.vitrine::before,.duvidas::before,.camada-final::before{border-radius:50% 50% 0 0 / 46px 46px 0 0; top:-44px;}
+    .sobre::before,.passos::before,.dentro::before,.vitrine::before,.duvidas::before,.camada-final::before{border-radius:50% 50% 0 0 / 46px 46px 0 0; top:-44px;}
     .camada-final::before{top:-10px;}
     .card.form{padding:22px 18px 20px; border-radius:26px !important;}
     .final{border-radius:30px !important;}
@@ -711,7 +712,7 @@
   .aura::before,.aura.suave::before{filter:none !important; animation:none !important; opacity:.6 !important;}
   .topbar{background:rgba(245,241,253,.95) !important;}
   .barra{background:rgba(245,241,253,.97) !important;}
-  .sobre::before,.passos::before,.vitrine::before,.duvidas::before,.camada-final::before{box-shadow:none !important;}
+  .sobre::before,.passos::before,.dentro::before,.vitrine::before,.duvidas::before,.camada-final::before{box-shadow:none !important;}
   .gancho,.faq details{background:rgba(255,255,255,.80) !important;}
   @media (max-width:700px), (hover:none){ .orbitas .giro{animation:none;} }
   /* No celular e no tablet a página fica parada: as cintilações do gráfico
@@ -726,6 +727,28 @@
   }
 .prod .selo-novo{display:inline-block;align-self:flex-start;font-family:"Jost",system-ui,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:#D9440C;border-radius:999px;padding:4px 11px;margin:0 0 8px}
 .prod .saiba{display:block;text-align:center;margin-top:10px;font-family:"Jost",system-ui,sans-serif;font-size:14px;color:var(--violet,#5E3FA6)}
+
+/* ===== DENTRO DA LEITURA (páginas em leque) ===== */
+.dentro{position:relative;padding:clamp(60px,9vw,110px) 20px}
+.dentro-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,70px);align-items:center}
+@media(max-width:900px){.dentro-grid{grid-template-columns:1fr}}
+.leque{position:relative;aspect-ratio:1/0.92;max-width:560px;width:100%;margin:0 auto}
+@media(min-width:901px){.leque{position:sticky;top:120px;align-self:start;margin-top:40px}}
+.leque img{position:absolute;width:56%;height:auto;border-radius:6px;box-shadow:0 26px 50px -22px rgba(46,26,71,.5);border:1px solid rgba(94,63,166,.14)}
+.leque .f1{left:22%;top:0;z-index:3}
+.leque .f2{left:0;top:60px;transform:rotate(-7deg);z-index:2}
+.leque .f3{right:0;top:60px;transform:rotate(7deg);z-index:1}
+.leque .selo-pdf{position:absolute;z-index:4;right:4%;bottom:2%;background:var(--ink);color:#F5F1FD;border-radius:999px;padding:9px 16px;font-family:"Jost",system-ui,sans-serif;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 14px 30px -18px rgba(46,26,71,.6)}
+
+.dentro .sec-eyebrow,.dentro .sec-title{text-align:left}
+.dentro .sec-title{font-size:clamp(32px,4.2vw,48px)!important;line-height:1.08}
+.dentro-lede{font-family:"EB Garamond",Georgia,serif;font-style:italic;font-size:20px;line-height:1.5;color:var(--soft);margin:6px 0 0}
+.caps{list-style:none;padding:0;margin:22px 0 0;counter-reset:c}
+.caps li{counter-increment:c;display:flex;gap:16px;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(94,63,166,.16)}
+.caps li::before{content:counter(c,upper-roman);flex:0 0 44px;font-family:"EB Garamond",Georgia,serif;font-style:italic;font-weight:600;color:var(--rose);font-size:19px}
+.caps b{font-family:"Jost",system-ui,sans-serif;font-weight:500;color:var(--ink);font-size:16px}
+.caps span{display:block;font-family:"EB Garamond",Georgia,serif;font-size:16.5px;color:var(--soft);line-height:1.4}
+.dentro-nota{margin:16px 0 0;font-family:"Jost",system-ui,sans-serif;font-size:13.5px;color:var(--faint)}
 </style>
 </head>
 <body>
@@ -871,6 +894,35 @@
         <p class="pnum">03</p>
         <h3>You receive the PDF</h3>
         <p>The PDF downloads to your device in seconds, ready to read on your phone or print. You can come back to your reading page and download it again whenever you want.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="dentro" id="dentro">
+    <div class="dentro-grid">
+      <div class="leque" aria-label="Sample pages of the Complete Matrix of Destiny PDF">
+        <img class="f2" src="leitura-matriz.jpg" alt="The matrix chart page" loading="lazy" width="640" height="905">
+        <img class="f3" src="leitura-previsoes.jpg" alt="The forecasts chapter" loading="lazy" width="640" height="905">
+        <img class="f1" src="leitura-capa.jpg" alt="Cover of a Complete Matrix of Destiny reading" loading="lazy" width="640" height="905">
+        <span class="selo-pdf">PDF · sample</span>
+      </div>
+      <div>
+        <p class="sec-eyebrow">Inside the Complete Matrix</p>
+        <h2 class="sec-title">Your whole chart, read zone by zone</h2>
+        <p class="dentro-lede">Around 25 pages with your name on the cover, your matrix drawn for your date of birth and every chapter written for the arcana it revealed.</p>
+        <ol class="caps">
+          <li><div><b>Your past life</b><span>Your karmic tail and how to heal it.</span></div></li>
+          <li><div><b>Your current life</b><span>The arcanum that rules your essence.</span></div></li>
+          <li><div><b>Your annual energy</b><span>The cycle you are living right now.</span></div></li>
+          <li><div><b>Your love life</b><span>Single or in a relationship, and the partner your chart describes.</span></div></li>
+          <li><div><b>Your career</b><span>Your work, your money and what calls for care.</span></div></li>
+          <li><div><b>Material karma</b><span>The inheritance you carry around money.</span></div></li>
+          <li><div><b>Maternal and paternal karma</b><span>What came to you from each line.</span></div></li>
+          <li><div><b>Your portrait zone</b><span>The impression you make on others.</span></div></li>
+          <li><div><b>Your soul's desires</b><span>The material and the spiritual.</span></div></li>
+          <li><div><b>Forecasts for the coming years</b><span>The cycles that open next, age by age.</span></div></li>
+        </ol>
+        <p class="dentro-nota">Soulmate, Talents and Year readings follow the same style, focused on one line of your chart.</p>
       </div>
     </div>
   </section>
@@ -1091,7 +1143,7 @@ renderVitrine();
 
 /* seções surgem ao entrar na tela */
 (function(){
-  const alvos=document.querySelectorAll('.sobre,.passos,.vitrine,.duvidas,.final,.depoimentos,.combos');
+  const alvos=document.querySelectorAll('.sobre,.passos,.dentro,.vitrine,.duvidas,.final,.depoimentos,.combos');
   if(!('IntersectionObserver' in window)){ alvos.forEach(a=>a.classList.add('visivel')); return; }
   alvos.forEach(a=>a.classList.add('aparece'));
   const obs=new IntersectionObserver((ent,o)=>{
