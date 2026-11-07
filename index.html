@@ -724,6 +724,8 @@
     .btn::after{animation:none !important; display:none;}
     .brilhos{display:none !important;}
   }
+.prod .selo-novo{display:inline-block;align-self:flex-start;font-family:"Jost",system-ui,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:#D9440C;border-radius:999px;padding:4px 11px;margin:0 0 8px}
+.prod .saiba{display:block;text-align:center;margin-top:10px;font-family:"Jost",system-ui,sans-serif;font-size:14px;color:var(--violet,#5E3FA6)}
 </style>
 </head>
 <body>
@@ -878,7 +880,7 @@
       <p class="sec-eyebrow">Personalized readings</p>
       <h2 class="sec-title">Discover your story</h2>
     </div>
-    <p class="vitrine-lede">Each reading is a PDF calculated from your own chart — every part is built on the arcana your date revealed.</p>
+    <p class="vitrine-lede">Each reading is calculated from your own chart — every part is built on what your birth revealed.</p>
     <div class="carousel" id="vitrine"></div>
   </section>
 
@@ -1021,7 +1023,22 @@ const PRODUTOS=[
          'How to make the most of this energy',
          'What to watch for along the way'],
   msg:'Hi! I\u2019d like the Year Matrix reading for 2027 \u2728',
-  url:'https://pay.hotmart.com/G108188042Y'}
+  url:'https://pay.hotmart.com/G108188042Y'},
+
+ {nome:'Astro Compass', preco:'USD $19', cor:'#D9440C', novo:true,
+  destaque:'Where in the world your stars want to take you',
+  nota:'astrocartography · interactive world map',
+  entrega:'Instant access · interactive map',
+  botao:'Get my map',
+  saiba:'astro-compass.html',
+  itens:['Your planetary lines drawn over the world map',
+         '500+ cities analysed across 141 countries',
+         'Your most compatible places, in %',
+         '11 life themes: love, career, home, healing…',
+         'A reading for every city you tap',
+         'Uses your date, time and city of birth'],
+  msg:'Hi! I’d like the Astro Compass map 🧭',
+  url:'https://pay.hotmart.com/H108384673J'}
 ];
 function renderVitrine(){
   const box=document.getElementById('vitrine');
@@ -1042,13 +1059,15 @@ function renderVitrine(){
     }
     return '<div class="prod">'+
       '<div class="ptop" style="background:'+p.cor+'"></div>'+
+      (p.novo?'<p class="selo selo-novo">New</p>':'')+
       '<h3>'+p.nome+'</h3>'+
       '<p class="pd">'+p.destaque+'</p>'+
       (p.nota?'<p class="pn">'+p.nota+'</p>':'')+
-      '<p class="pentrega">Instant download · PDF</p>'+
+      '<p class="pentrega">'+(p.entrega||'Instant download · PDF')+'</p>'+
       '<ul>'+lis+'</ul>'+
       '<div class="price" style="background:'+p.cor+'">'+p.preco+'</div>'+
-      '<a class="buy" href="'+link+'" target="_blank" rel="noopener">Get this reading</a>'+
+      '<a class="buy" href="'+link+'" target="_blank" rel="noopener">'+(p.botao||'Get this reading')+'</a>'+
+      (p.saiba?'<a class="saiba" href="'+p.saiba+'">See how it works →</a>':'')+
       '</div>';
   }).join('');
 }
