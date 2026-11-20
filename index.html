@@ -160,14 +160,20 @@
     display:flex; flex-direction:column;}
   .combo .eco{font-family:"Jost",system-ui,sans-serif; font-size:10px; letter-spacing:.14em;
     text-transform:uppercase; color:var(--green); margin:0 0 10px;}
-  .combo h3{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:28px; color:var(--violet); margin:0 0 12px;}
+  .combo h3{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:28px; color:var(--violet); margin:0 0 12px; line-height:1.1;}
   .combo ul{list-style:none; padding:0; margin:0 0 18px; flex:1;}
   .combo li{position:relative; padding-left:20px; margin:0 0 8px; font-size:16px;}
   .combo li::before{content:""; position:absolute; left:1px; top:9px; width:5px; height:5px;
     background:var(--rose); transform:rotate(45deg);}
   .combo .pr{display:flex; align-items:baseline; gap:10px; margin:0 0 16px;}
-  .combo .de{font-family:"EB Garamond",serif; font-size:17px; color:var(--faint); text-decoration:line-through;}
-  .combo .por{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:32px; color:var(--violet);}
+  .combo .de{font-family:"EB Garamond",serif; font-size:15px; color:var(--faint); text-decoration:line-through; white-space:nowrap;}
+  .combo .por{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:700; font-size:28px; color:var(--violet); white-space:nowrap;}
+  .combo .cdesc{font-family:"EB Garamond",serif; font-style:italic; color:var(--soft); font-size:16.5px; margin:-6px 0 16px;}
+  .combo .buy{display:block; text-align:center; text-decoration:none; font-family:"Jost",system-ui,sans-serif; font-weight:500;
+    letter-spacing:.14em; text-transform:uppercase; font-size:12px; color:var(--cream); padding:14px; border-radius:3px;
+    background:var(--violet); transition:background .2s, transform .15s;}
+  .combo .buy:hover{background:#4A2474; transform:translateY(-1px);}
+  .combos-lede{font-family:"EB Garamond",serif; font-style:italic; color:var(--soft); font-size:18px; text-align:center; margin:0 auto 26px; max-width:52ch;}
 
   /* ---- depoimentos ---- */
   .depo-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:16px;}
@@ -1034,6 +1040,15 @@
     </div>
     <p class="vitrine-lede">Each reading is calculated from your own chart — every part is built on what your birth revealed.</p>
     <div class="carousel" id="vitrine"></div>
+
+    <div class="combos" id="combos">
+      <div class="sec-head">
+        <p class="sec-eyebrow">Bundles</p>
+        <h2 class="sec-title">Two readings, one price</h2>
+      </div>
+      <p class="combos-lede">The Complete Matrix paired with a focused reading — both calculated from your chart, delivered together.</p>
+      <div class="combo-grid" id="comboGrid"></div>
+    </div>
   </section>
 
   <section class="depoimentos" id="depoimentos" style="display:none">
@@ -1126,7 +1141,7 @@
 const WHATSAPP='5514996056079';
 function waLink(msg){ return 'https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg); }
 const PRODUTOS=[
- {nome:'Complete Matrix of Destiny', preco:'USD $19', cor:'#5B2A86',
+ {nome:'Complete Matrix of Destiny', preco:'USD $15', cor:'#5B2A86',
   destaque:'The ten zones of your chart, read one by one',
   nota:'10 sections · the most complete reading',
   itens:['Past life — your karmic tail and how to heal it',
@@ -1142,7 +1157,7 @@ const PRODUTOS=[
   msg:'Hi! I\u2019d like the Complete Matrix of Destiny reading \u2728',
   url:'https://pay.hotmart.com/P108187336W'},
 
- {nome:'Soulmate Reading', preco:'USD $12', cor:'#B0457A',
+ {nome:'Soulmate Reading', preco:'USD $9.90', cor:'#B0457A',
   destaque:'Who they are, how to recognize them, where to meet',
   nota:'the love line of your chart',
   itens:['The block that has been keeping love away',
@@ -1154,7 +1169,7 @@ const PRODUTOS=[
   msg:'Hi! I\u2019d like the Soulmate Reading \uD83D\uDC9C',
   url:'https://pay.hotmart.com/G108187939A'},
 
- {nome:'Compatibility Reading', preco:'USD $16', cor:'#C9574F', novo:true,
+ {nome:'Compatibility Reading', preco:'USD $12.50', cor:'#C9574F', novo:true,
   destaque:'Two birth dates, one couple matrix',
   nota:'the matrix of your relationship',
   itens:['The core energy of your relationship',
@@ -1166,7 +1181,7 @@ const PRODUTOS=[
   msg:'Hi! I’d like the Compatibility Reading 💞',
   url:'https://pay.hotmart.com/J108538331H'},
 
- {nome:'Talents Matrix', preco:'USD $12', cor:'#A8526B',
+ {nome:'Talents Matrix', preco:'USD $9.90', cor:'#A8526B',
   destaque:'The gift you were born with, and where it pays off',
   nota:'the talent line of your chart',
   itens:['Your talent line, read in three arcana',
@@ -1178,7 +1193,7 @@ const PRODUTOS=[
   msg:'Hi! I\u2019d like the Talents Matrix reading \u2728',
   url:'https://go.hotmart.com/F108187982G?dp=1'},
 
- {nome:'Year Matrix 2027', preco:'USD $12', cor:'#8E3E9C',
+ {nome:'Year Matrix 2027', preco:'USD $9.90', cor:'#8E3E9C',
   destaque:'The energy ruling your 2027, before the year begins',
   nota:'your personal forecast for the year',
   itens:['Your ruling arcanum in 2027',
@@ -1236,6 +1251,29 @@ function renderVitrine(){
   }).join('');
 }
 renderVitrine();
+
+const COMBOS=[
+ {nome:'Complete + Soulmate', desc:'Your whole chart, and the love line read in depth',
+  itens:['Complete Matrix of Destiny — the ten zones of your chart','Soulmate Reading — who they are and where you meet','Two personalized PDFs, delivered instantly'],
+  url:'https://pay.hotmart.com/F108586928F'},
+ {nome:'Complete + Talents', desc:'Your whole chart, and the gift you were born with',
+  itens:['Complete Matrix of Destiny — the ten zones of your chart','Talents Matrix — your talent line and how to unlock it','Two personalized PDFs, delivered instantly'],
+  url:'https://pay.hotmart.com/Q108586985X'},
+ {nome:'Complete + Year 2027', desc:'Your whole chart, and the energy ruling your next year',
+  itens:['Complete Matrix of Destiny — the ten zones of your chart','Year Matrix 2027 — your personal forecast for the year','Two personalized PDFs, delivered instantly'],
+  url:'https://pay.hotmart.com/H108587016G'}
+];
+(function(){
+  const g=document.getElementById('comboGrid'); if(!g) return;
+  g.innerHTML=COMBOS.map(c=>'<div class="combo">'+
+    '<p class="eco">Save $5</p>'+
+    '<h3>'+c.nome+'</h3>'+
+    '<p class="cdesc">'+c.desc+'</p>'+
+    '<ul>'+c.itens.map(i=>'<li>'+i+'</li>').join('')+'</ul>'+
+    '<div class="pr"><span class="de">USD $24.90</span><span class="por">USD $19.90</span></div>'+
+    '<a class="buy" href="'+c.url+'" target="_blank" rel="noopener">Get the bundle</a>'+
+    '</div>').join('');
+})();
 
 /* poeira do fundo, gerada uma vez */
 (function(){
@@ -1857,7 +1895,7 @@ const CFG = {
   },
   chamado:function(A,B,cas,par,u){
     const p=(typeof PRODUTOS!=='undefined'&&PRODUTOS.find(x=>/compatib/i.test(x.nome)))||{};
-    const preco=p.preco||'USD $16', url=p.url||'#catalogo';
+    const preco=p.preco||'USD $12.50', url=p.url||'#catalogo';
     const itens=p.itens||[];
     const msg='Hi! I did the couple calculator on the site (core arcanum '+cas.r.centro+') and I have a question about the Compatibility Reading 💞';
     return '<div class="chamado">'+
