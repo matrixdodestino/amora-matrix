@@ -1041,7 +1041,7 @@
     <p class="vitrine-lede">Each reading is calculated from your own chart — every part is built on what your birth revealed.</p>
     <div class="carousel" id="vitrine"></div>
 
-    <div class="combos" id="combos">
+    <div class="combos" id="combos" hidden>
       <div class="sec-head">
         <p class="sec-eyebrow">Bundles</p>
         <h2 class="sec-title">Two readings, one price</h2>
@@ -1263,8 +1263,11 @@ const COMBOS=[
   itens:['Complete Matrix of Destiny — the ten zones of your chart','Year Matrix 2027 — your personal forecast for the year','Two personalized PDFs, delivered instantly'],
   url:'https://pay.hotmart.com/H108587016G'}
 ];
+/* >>> true once the three bundle products are published on Hotmart <<< */
+const COMBOS_ATIVOS=false;
 (function(){
   const g=document.getElementById('comboGrid'); if(!g) return;
+  if(COMBOS_ATIVOS) document.getElementById('combos').hidden=false;
   g.innerHTML=COMBOS.map(c=>'<div class="combo">'+
     '<p class="eco">Save $5</p>'+
     '<h3>'+c.nome+'</h3>'+
