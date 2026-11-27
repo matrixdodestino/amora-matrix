@@ -290,6 +290,15 @@
 .pv-cta{display:inline-block;background:#FF5A1F;color:#fff!important;text-decoration:none;border-radius:999px;padding:11px 20px;font:700 14px 'DM Sans',sans-serif;white-space:nowrap}
 .pv-cta:hover{background:#D9440C}
 .soul-card .pv-cta{margin-top:18px}
+.pv-temas{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+.pv-tema{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:18px;padding:16px 18px;border:1px solid #DCE8F4}
+.pv-tema.destaque{grid-column:1/-1;border:2px solid var(--c);background:linear-gradient(135deg,#fff,#FFF1F6)}
+.pv-tema.destaque h3{font-size:22px}
+.pv-gl{flex:none;width:42px;height:42px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font-size:21px;font-family:'DejaVu Sans',sans-serif}
+.pv-tema h3{margin:0;font:800 17px/1.2 'Bricolage Grotesque',sans-serif;color:#0E2240}
+.pv-sm{margin:3px 0 8px;font-size:13px;color:#56667E}
+@media(max-width:640px){.pv-temas{grid-template-columns:1fr}}
+.pv-cid{margin:0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-weight:700}
 .pv-blur{filter:blur(6px);user-select:none;pointer-events:none}
 .pv-lock{display:inline-flex;align-items:center;gap:6px;font:700 12px 'DM Sans',sans-serif;color:#56667E;background:#EEF3F8;border-radius:999px;padding:5px 10px}
 .pv-card{position:relative;border-radius:24px;padding:26px 28px;background:linear-gradient(135deg,#EAF3FC,#D4E7F8);border:1px solid #CFE0F2;margin:26px 0 8px}
@@ -1571,7 +1580,7 @@ draw();if(!reduce)requestAnimationFrame(loop);
 
 <script>
 /* ===== PRÉVIA: só a linha do Sol no Meio do Céu fica visível ===== */
-const PV={"banner": "<b>Free preview.</b> You are seeing <b>1 of your 40 lines</b>: the Sun on the Midheaven. The other 39 lines, your compatible cities and the reading of your soul city unlock with the full map.", "btn": "Unlock my full map · US$ 19", "link": "https://pay.hotmart.com/H108384673J", "amostra": "sample line", "trava": "🔒 Locked line", "travaTit": "This line is locked", "travaTxt": "In the full map you see which planet draws this line, what it activates in you and which cities it crosses.", "lugar": "Place reading", "comp": "??? compatibility", "lugarTxt": "Lines from your map pass near this place. Unlock the full map to see which ones, how strong they are and what they awaken here.", "neutro": "No line from your map passes near this place, as far as the preview can show.", "legSol": "Sun · Midheaven (sample)", "legMais": "+ 9 planets and 39 lines locked", "soulKick": "Soul city", "soulTit": "Your soul city", "soulTxt": "This is where the most generous lines of your sky meet. Why this city calls you, which planets act here and what it awakens in love, work and everyday life is explained in the full map.", "soulPq": "Why this city", "soulInf": "The planets acting here", "soulLocks": "influences locked", "soulNada": "The preview could not find a soul city close to your lines. The full map shows your strongest places in every theme.", "compKick": "Compatibility", "compTit": "Your most compatible cities", "compTxt": "Your top 10 cities, ranked by how close your most generous lines pass. Names and percentages unlock with the full map.", "leitKick": "Your reading", "leitTit": "What each place activates in you", "fimTit": "Your whole map is ready", "fimTxt": "40 planetary lines, your soul city, compatibility with 500+ cities in 11 life themes and a reading for every place you tap.", "km": "km"};
+const PV={"banner": "<b>Free preview.</b> You are seeing <b>1 of your 40 lines</b>: the Sun on the Midheaven. The other 39 lines, your compatible cities and the reading of your soul city unlock with the full map.", "btn": "Unlock my full map · US$ 19", "link": "https://pay.hotmart.com/H108384673J", "amostra": "sample line", "trava": "🔒 Locked line", "travaTit": "This line is locked", "travaTxt": "In the full map you see which planet draws this line, what it activates in you and which cities it crosses.", "lugar": "Place reading", "comp": "??? compatibility", "lugarTxt": "Lines from your map pass near this place. Unlock the full map to see which ones, how strong they are and what they awaken here.", "neutro": "No line from your map passes near this place, as far as the preview can show.", "legSol": "Sun · Midheaven (sample)", "legMais": "+ 9 planets and 39 lines locked", "soulKick": "Soul city", "soulTit": "Your soul city", "soulTxt": "This is where the most generous lines of your sky meet. Why this city calls you, which planets act here and what it awakens in love, work and everyday life is explained in the full map.", "soulPq": "Why this city", "soulInf": "The planets acting here", "soulLocks": "influences locked", "soulNada": "The preview could not find a soul city close to your lines. The full map shows your strongest places in every theme.", "compKick": "Your places by theme", "compTit": "Where each planet takes you", "compTxt": "Each planet in your chart points to different cities. The names unlock with the full map.", "temas": [["Venus", "Where you may find love", "Venus line · love and connection"], ["Jupiter", "Where money and luck open doors", "Jupiter line · growth and abundance"], ["Sun", "Where your work gets recognized", "Sun line · shine and career"], ["Moon", "Where you feel at home", "Moon line · roots and comfort"], ["Neptune", "Where creativity and intuition flow", "Neptune line · art and spirituality"]], "leitKick": "Your reading", "leitTit": "What each place activates in you", "fimTit": "Your whole map is ready", "fimTxt": "40 planetary lines, your soul city, compatibility with 500+ cities in 11 life themes and a reading for every place you tap.", "km": "km"};
 const PV_FAKE=[["Isogb", "Ucgia"], ["Cdune", "Epganbgs"], ["Avelr", "Ptctlsoa"], ["Rablo", "Dlnlnliut"], ["Ictivcdp", "Godu"], ["Eatiav", "Ppoicbcel"], ["Tubc", "Pgsitm"], ["Scrgmim", "Evgcpe"], ["Carv", "Ibaut"], ["Odansnu", "Tprb"]];
 const PV_LEIT="dnlrrui dvignp ncdnublmi vigmdesap cibvn becunlbl leoalgpi iutadmu dnenbsdu geuupo outl punmg socli taemnddm dpcilec dbrtrtomn rdtbibpsi tmgusptp ltdbndmnc ctnl sprpcdaov navtlvbn pbvtna tiee tctnodd sbmuu dplcsns dlgglir vaomgim asampslue eemvrtl eprnogl scinlc iouuuievd crlme pntlou vardorb illbcsmed tlua ttogpi clmm medsruatd vrlvpen slopa anultesl puaevdbi rmpug icvlrgno nlugrls vvirr rpdvirsm mgnoaepe netlss vtnc lcdu tvsnbeacr idacm ruiaaln msiap picg";
 const pvLivre=l=>l.P.b==='Sun'&&l.angle==='MC';
@@ -1640,7 +1649,15 @@ function renderSoul(lines){
     '<a class="pv-cta" href="'+PV.link+'">'+PV.btn+'</a></div>';
 }
 function renderCompat(lines){
-  document.getElementById('compat').innerHTML='<div class="pv-card"><p class="pv-kick">'+PV.compKick+'</p><h2 class="pv-tit">'+PV.compTit+'</h2><p class="pv-sub">'+PV.compTxt+'</p>'+pvRank(10)+'</div>';
+  const cards=PV.temas.map((t,i)=>{
+    const P=PLANETS.find(p=>p.b===t[0])||{cor:'#FF5A1F',sym:'✦'};
+    return '<div class="pv-tema'+(i===0?' destaque':'')+'" style="--c:'+P.cor+'">'+
+      '<span class="pv-gl">'+P.sym+'</span>'+
+      '<div class="pv-tx"><h3>'+t[1]+'</h3><p class="pv-sm">'+t[2]+'</p>'+
+      '<p class="pv-cid"><span class="pv-blur">'+PV_FAKE[i][0]+', '+PV_FAKE[i+3][1]+'</span><span class="pv-lock">🔒 ??%</span></p></div></div>';
+  }).join('');
+  document.getElementById('compat').innerHTML='<div class="pv-card"><p class="pv-kick">'+PV.compKick+'</p><h2 class="pv-tit">'+PV.compTit+'</h2><p class="pv-sub">'+PV.compTxt+'</p>'+
+    '<div class="pv-temas">'+cards+'</div><a class="pv-cta" style="margin-top:18px" href="'+PV.link+'">'+PV.btn+'</a></div>';
 }
 function renderReading(){
   document.getElementById('reading').innerHTML='<div class="pv-card pv-leit"><p class="pv-kick">'+PV.leitKick+'</p><h2 class="pv-tit">'+PV.leitTit+'</h2>'+
