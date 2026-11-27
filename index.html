@@ -822,6 +822,29 @@
     .cp-e{justify-self:center; font-size:34px;}
     .cp-karmas{grid-template-columns:1fr;}
   }
+
+  /* ===== SEÇÃO ASTRO COMPASS ===== */
+  .topbar nav a.ac-nav{color:var(--rose); font-weight:600}
+  .ac-sec{margin-top:clamp(56px,9vw,88px)}
+  .ac-novo{display:table; margin:0 auto 12px; font-family:"Jost",system-ui,sans-serif; font-size:11px; font-weight:600; letter-spacing:.2em;
+    text-transform:uppercase; color:#fff; background:var(--violet); border-radius:999px; padding:6px 13px}
+  .ac-sec .sec-title em{color:var(--rose)}
+  .ac-intro{text-align:center; color:var(--soft); max-width:56ch; margin:0 auto 18px}
+  .ac-inc{display:none} .ac-sec.aberta .ac-inc{display:block; animation:acIn .6s ease}
+  @keyframes acIn{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+  #ac-frame{display:block; width:100%; height:560px; border:0; background:transparent; transition:height .35s ease}
+  .ac-inc{margin-top:22px; padding:clamp(22px,4vw,34px); border-radius:24px; background:linear-gradient(135deg,#FDF8F2,#EFE3F4 60%,#F6DFE7);
+    border:1px solid var(--line-soft)}
+  .ac-inc h3{font-family:"EB Garamond",Georgia,serif; font-style:italic; font-weight:600; font-size:clamp(24px,3.4vw,30px); margin:0 0 14px; text-align:center}
+  .ac-inc ul{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(2,1fr); gap:10px 22px}
+  .ac-inc li{display:flex; gap:10px; font-family:"Jost",system-ui,sans-serif; font-size:15.5px; line-height:1.45; color:var(--ink)}
+  .ac-inc li:before{content:'✦'; color:var(--rose); flex:none}
+  .ac-ctas{display:flex; flex-wrap:wrap; justify-content:center; gap:14px; align-items:center; margin-top:22px}
+  .ac-btn{display:inline-block; font-family:"Jost",system-ui,sans-serif; font-weight:500; letter-spacing:.06em; font-size:15px;
+    background:var(--violet); color:#fff; border-radius:999px; padding:13px 26px; text-decoration:none; transition:transform .2s, background .2s}
+  .ac-btn:hover{background:var(--rose); transform:translateY(-2px)}
+  .ac-link{font-family:"Jost",system-ui,sans-serif; font-size:14px; color:var(--violet)}
+  @media(max-width:640px){ .ac-inc ul{grid-template-columns:1fr} #ac-frame{margin:0 -10px; width:calc(100% + 20px)} }
 </style>
 <script type="application/ld+json" data-seo>[{"@context": "https://schema.org", "@type": "WebSite", "name": "Amora Matrix", "url": "https://amora-matrix.com/", "description": "Free Destiny Matrix calculator: draw your Matrix of Destiny chart from your birth date and preview every zone, from karmic tail to love and money. Complete readings as an instant PDF."}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the reading the same thing I see here on the site?", "acceptedAnswer": {"@type": "Answer", "text": "No. What the site gives you is the general meaning of each arcana on your chart — a preview. The complete reading is built from your specific combination, with the arcana in conversation with one another, and each section is several times the length of what you read here."}}, {"@type": "Question", "name": "Do I need to know my time of birth?", "acceptedAnswer": {"@type": "Answer", "text": "No. Unlike an astrological birth chart, the Matrix of Destiny is calculated from the day, month, and year alone. That is enough to draw the entire chart."}}, {"@type": "Question", "name": "How do I receive it?", "acceptedAnswer": {"@type": "Answer", "text": "Right away. Once your payment is confirmed, open the reading page (link in the footer and in your purchase email), sign in with the email you bought with, type the name and date of birth, and the PDF downloads to your device in seconds. You can return to that page and download it again at any time."}}, {"@type": "Question", "name": "Is it useful if I know nothing about tarot?", "acceptedAnswer": {"@type": "Answer", "text": "It is, and that is exactly why it is written this way. Each arcana is introduced by name and explained in plain language, with no jargon. You do not need to know anything before you start reading."}}, {"@type": "Question", "name": "Can I order a reading for someone else?", "acceptedAnswer": {"@type": "Answer", "text": "You can, and it tends to make a very well-received gift. Each purchase covers one date of birth, so buy one reading for each person and type in their name and date when you open it."}}, {"@type": "Question", "name": "Can I use one purchase for more than one date?", "acceptedAnswer": {"@type": "Answer", "text": "No. When you confirm a name and date, that purchase is set to them. You can download the same reading again as often as you like, but a different date needs a new purchase. Check the date before you confirm."}}, {"@type": "Question", "name": "I paid but cannot get in. What now?", "acceptedAnswer": {"@type": "Answer", "text": "Use the exact email you gave at checkout, and give it a minute after payment. If it still does not open, message me on WhatsApp and I will sort it out."}}, {"@type": "Question", "name": "Does this replace therapy or professional advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. The reading is a tool for self-knowledge and reflection, made to help you look at your own story with fresh eyes. It does not replace psychological, medical, legal, or financial support."}}]}]</script>
 </head>
@@ -855,6 +878,7 @@
       <a href="#comofunciona" class="opcional">How it works</a>
       <a href="#compatibility" class="opcional">Compatibility</a>
       <a href="#catalogo">Readings</a>
+      <a href="#astro-compass" class="ac-nav">✦ Astro Compass</a>
     </nav>
   </div>
 </div>
@@ -935,6 +959,8 @@
 
     <div class="leitura" id="leitura"></div>
   </div>
+
+
 
   <section class="sobre">
     <div class="sec-head">
@@ -1056,6 +1082,25 @@
       </div>
       <p class="combos-lede">The Complete Matrix paired with a focused reading — both calculated from your chart, delivered together.</p>
       <div class="combo-grid" id="comboGrid"></div>
+    </div>
+  </section>
+
+  <section class="ac-sec" id="astro-compass">
+    <span class="ac-novo">✦ New · Astro Compass</span>
+    <h2 class="sec-title">Where do your <em>stars</em> want to take you?</h2>
+    <p class="ac-intro">The moment you were born, every planet sat over an exact spot on Earth. Enter your birth details and see your first planetary line on the world map, free.</p>
+    <iframe id="ac-frame" src="astro-compass-mapa.html" title="Astro Compass free map" loading="lazy"></iframe>
+    <div class="ac-inc">
+      <h3>What comes in your full map</h3>
+      <ul>
+        <li>All 40 of your planetary lines drawn over the world map</li>
+        <li>Your soul city, where your most generous lines meet</li>
+        <li>500+ cities in 141 countries, ranked for you in %</li>
+        <li>Where you may find love, grow your money and feel at home</li>
+        <li>11 life themes: love, career, creativity, healing and more</li>
+        <li>A reading for every city you tap on the map</li>
+      </ul>
+      <div class="ac-ctas"><a class="ac-btn" href="https://pay.hotmart.com/H108384673J">Get my full map · US$ 19</a><a class="ac-link" href="astro-compass.html">Learn more about Astro Compass →</a></div>
     </div>
   </section>
 
@@ -2193,6 +2238,12 @@ $('cpGo').addEventListener('click', () => {
 });
 
 window._cpCalcCasal = calcCasal;   /* usado só nos testes */
+})();
+</script>
+
+<script>
+(function(){ var f=document.getElementById('ac-frame'); if(!f) return;
+  window.addEventListener('message',function(e){ if(e.source===f.contentWindow && e.data && e.data.pvH) f.style.height=Math.max(380,e.data.pvH)+'px'; if(e.source===f.contentWindow && e.data && e.data.pvOpen){ var sc=document.getElementById('astro-compass'); if(sc) sc.classList.add('aberta'); } });
 })();
 </script>
 </body>
